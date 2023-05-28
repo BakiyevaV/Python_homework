@@ -1,0 +1,5 @@
+year_input = input("Введите ваш год рождения: ")
+month_input = input("Введите ваш месяц рождения: ")
+day_input = input("Введите ваш месяц рождения: ")
+message = "Ваш день рождения: %s.%s.%s" %(day_input, month_input, year_input)
+print(message)
