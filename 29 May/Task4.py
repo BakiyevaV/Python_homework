@@ -1,5 +1,5 @@
 user_word_input = input("Введите слово из 5 букв: " )
-if type(user_word_input) != str:
+if type(user_word_input) != str: # VN: а там str в любом случае
     message = "Вы ввели не слово"
 else:
     sign_num = len(user_word_input)

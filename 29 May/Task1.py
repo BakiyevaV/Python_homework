@@ -4,6 +4,7 @@ try:
 except ValueError:
     message = "Вы ввели не число!"
 else:
+    # VN: Здесь можно было одним условием сделать:  if user_number > 9 or user_number < 0:
     if user_number>9:
         message = "Введенное число вне допустимого диапазона!"
     elif user_number<0:
