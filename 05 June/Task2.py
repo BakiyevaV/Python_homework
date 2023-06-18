@@ -9,3 +9,13 @@ def get_days(i):
         return print("Конец.")
 
 get_days(0)
+
+''' VN: Всё прекрасно, с одним нюансом:
+Ваш день недели! -  Воскресенье
+Вам подсказать следующий день?Да
+Traceback (most recent call last):
+  ...
+    print("Ваш день недели! - ", days[i])
+                                 ~~~~^^^
+IndexError: list index out of range
+'''

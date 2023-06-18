@@ -47,6 +47,7 @@ def game(my_random, min, max, amount = 7):
     
     play_again()
 
+# VN: эти все штуки есть в таком же виде в play_again(), поэтому лучше всего здесь её и вызвать
 bottom = 0
 top = 20
 num = get_random_int(bottom, top)
