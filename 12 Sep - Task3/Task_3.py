@@ -1,34 +1,44 @@
-from PyQt6.QtCore import QThread
-from PyQt6.QtWidgets import QMainWindow, QPushButton,QLabel
+from PyQt6.QtCore import QThread, pyqtSignal
+from PyQt6.QtWidgets import QMainWindow, QPushButton,QLabel, QFileDialog
 from PyQt6 import uic
 
 class MyWindow(QMainWindow):
+    def __new__(cls):
+        if not hasattr(cls, 'instance'):
+            cls.instance = super(MyWindow, cls).__new__(cls)
+        return cls.instance
+    
     def __init__(self):
         super().__init__()
         uic.loadUi("myui.ui",self)
+        self.button = self.findChild(QPushButton, "pushButton")
+        self.display = self.findChild(QLabel, "label")
+        self.button.clicked.connect(self.get_file)
+
+    def get_file (self):
+        self.textDisplayer = TextDisplayer(file_name="input.txt")
+        self.textDisplayer.textIsReady.connect(self.display_text)
+        self.textDisplayer.start()
+        
+    #Slot
+    def display_text(self,text):
+        self.display.setText(text)
 
 class TextDisplayer(QThread):
-    def __init__(self):
+    textIsReady = pyqtSignal(str)
+
+    def __init__(self, file_name):
         super().__init__()
-        self.window = MyWindow()
-        self.window.show()
+        self.file_name = file_name
 
     def run(self):
-        button = self.window.findChild(QPushButton, "pushButton")
-        print(button)
-        button.clicked.connect(self.open_file)
-
-    def open_file (self):
-        print("Кнопка нажата")
-        with open ("input.txt","r",encoding="UTF-8") as file:
+        with open (self.file_name,"r",encoding="UTF-8") as file:
             text = file.read()
+            if text:
+               self.textIsReady.emit(text) 
             file.close()
-        print(text)
-        self.display_text(text)
+            
     
-    def display_text(self,text):
-        my_display = self.window.findChild(QLabel, "label")
-        my_display.setText(text)
 
 
 

@@ -1,11 +1,11 @@
 import sys
 from PyQt6.QtWidgets import QApplication
-from Task_3 import TextDisplayer
+from Task_3 import MyWindow
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    text_displayer = TextDisplayer()
-    text_displayer.start()
+    window = MyWindow()
+    window.show()
     app.exec()
 
