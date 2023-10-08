@@ -35,8 +35,9 @@ class TextDisplayer(QThread):
     def run(self):
         with open (self.file_name,"r",encoding="UTF-8") as file:
             text = file.read()
-            if text:
-               self.textIsReady.emit(text) 
+            print(len(text))
+            if len(text) > 0:
+               self.textIsReady.emit(text)
             file.close()
             
     
