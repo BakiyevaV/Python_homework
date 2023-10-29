@@ -1,6 +1,8 @@
 import time
 
 def measuretime(func):
+    #VN: Этот декоратор может работать только с теми функциями, у которых один аргумент.
+    # Чтобы сделать его универсальным, вместо аргумента text нужно указать *args и **kwargs.
     def wrapper(text):
         start_time = time.time()
         text = func(text)
