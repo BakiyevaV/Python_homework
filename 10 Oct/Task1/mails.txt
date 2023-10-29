@@ -1,0 +1,1 @@
+salt@ john.doe@example.wwww jane.smith@example.co.uk @bar.kz kim.v.y@mail.ru google.@mail.tt andy@mail foo@olx.21
