@@ -1,4 +1,5 @@
 import re
+import sys
 
 class Converter():
     def __init__(self,eur, usd, input, output):
@@ -61,7 +62,12 @@ class Converter():
             output_file.close()
         print(new_text)
 
-converter = Converter(496.78, 470.3, "input.txt", "output.txt")
+console_args = sys.argv
+if len(console_args) == 3:
+    converter = Converter(496.78, 470.3, console_args[1], console_args[2])
+else:
+    print("Отсутсвуют необходимые аргументы")
+
 
 
 

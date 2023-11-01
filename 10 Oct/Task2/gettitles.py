@@ -1,4 +1,5 @@
 import re
+import sys
 
 def get_titles(input, output):
     with open(input,encoding="UTF-8") as file:
@@ -27,6 +28,11 @@ def get_titles(input, output):
 
     return final_text
 
-print(get_titles("index.html","output.txt"))
+console_args = sys.argv
+
+if len(console_args) == 3:
+    print(get_titles(console_args[1],console_args[2]))
+else:
+    print("Отсутсвуют необходимые аргументы")
 
 

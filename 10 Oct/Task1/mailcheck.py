@@ -1,9 +1,12 @@
 import re
+import sys
 
-with open('mails.txt') as file:
+console_args = sys.argv
+print(console_args)
+
+with open(console_args[1]) as file:
     data = file.read()
     file.close()
-
 new_data = data.split(" ")
 
 
