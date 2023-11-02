@@ -14,7 +14,7 @@ class JsonConverter():
     
 args = sys.argv
 if len(args) == 5:
-    emploee = JsonConverter(args[1], args[2], args[3], args[4])
+    emploee = JsonConverter(str(args[1]), int(args[2]), str(args[3]), float(args[4]))
     json_string = emploee.user_to_json()
     try:
         print("Это Json формат ",json.loads(json_string))
@@ -24,6 +24,10 @@ if len(args) == 5:
 else:
     print("Недопустимое количество аргументов")
 
+print(type(emploee.name))
+print(type(emploee.age))
+print(type(emploee.position))
+print(type(emploee.salary))
 
 
 
