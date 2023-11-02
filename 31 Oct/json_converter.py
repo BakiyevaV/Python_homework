@@ -24,11 +24,6 @@ if len(args) == 5:
 else:
     print("Недопустимое количество аргументов")
 
-print(type(emploee.name))
-print(type(emploee.age))
-print(type(emploee.position))
-print(type(emploee.salary))
-
 
 
 
